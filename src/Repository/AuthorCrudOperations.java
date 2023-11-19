@@ -88,7 +88,7 @@ public class AuthorCrudOperations implements CurdOperations<Author> {
             PreparedStatement preparedStatement=ConnectionDB
                     .getInstance().Database().prepareStatement(sql);
             preparedStatement.setString(1,toDelete.getId());
-            preparedStatement.executeQuery();
+            preparedStatement.executeUpdate();
 
 
 

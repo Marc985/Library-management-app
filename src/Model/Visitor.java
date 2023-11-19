@@ -8,4 +8,11 @@ public class Visitor extends User{
         super(reference,"");
     }
 
+    @Override
+    public String toString() {
+        return "Visitor{" +
+                "reference='" + reference + '\'' +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }

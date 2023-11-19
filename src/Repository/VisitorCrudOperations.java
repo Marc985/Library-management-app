@@ -25,7 +25,7 @@ public class VisitorCrudOperations implements CurdOperations<Visitor> {
                                 resultSet.getString("name")
                         )
                 );
-                System.out.println(resultSet.getString("reference"));
+
 
             }
         }catch (Exception e){
@@ -37,8 +37,8 @@ public class VisitorCrudOperations implements CurdOperations<Visitor> {
 
     @Override
     public List<Visitor> saveALl(List<Visitor> toSave) {
-        String sql="insert into visior (reference,name) values (?,?) " +
-                "conflict(reference) do update " +
+        String sql="insert into visitor (reference,name) values (?,?) " +
+                "on conflict(reference) do update " +
                 "set name=EXCLUDED.name";
         try {
             PreparedStatement preparedStatement=ConnectionDB
@@ -58,11 +58,13 @@ public class VisitorCrudOperations implements CurdOperations<Visitor> {
     @Override
     public Visitor save(Visitor toSave) {
         String sql="insert into visitor (reference,name) values (?,?) " +
-                "conflict(reference) do update " +
+                "on conflict(reference) do update " +
                 "set name=EXCLUDED.name";
         try {
             PreparedStatement preparedStatement=ConnectionDB
                     .getInstance().Database().prepareStatement(sql);
+            preparedStatement.setString(1,toSave.getReference());
+            preparedStatement.setString(2,toSave.getName());
             preparedStatement.executeUpdate();
         }catch (Exception e){
             e.printStackTrace();
@@ -76,6 +78,7 @@ public class VisitorCrudOperations implements CurdOperations<Visitor> {
         try {
             PreparedStatement preparedStatement=ConnectionDB
                     .getInstance().Database().prepareStatement(sql);
+            preparedStatement.setString(1,toDelete.getReference());
             preparedStatement.executeUpdate();
         }catch (Exception e){
             e.printStackTrace();

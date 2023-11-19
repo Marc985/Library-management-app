@@ -17,11 +17,5 @@ public class User {
         return name;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "reference='" + reference + '\'' +
-                ", name='" + name + '\'' +
-                '}';
-    }
+
 }
