@@ -37,7 +37,9 @@ public class VisitorCrudOperations implements CurdOperations<Visitor> {
 
     @Override
     public List<Visitor> saveALl(List<Visitor> toSave) {
-        String sql="insert into visior values (?,?)";
+        String sql="insert into visior (reference,name) values (?,?) " +
+                "conflict(reference) do update " +
+                "set name=EXCLUDED.name";
         try {
             PreparedStatement preparedStatement=ConnectionDB
                     .getInstance().Database().prepareStatement(sql);
@@ -55,7 +57,9 @@ public class VisitorCrudOperations implements CurdOperations<Visitor> {
 
     @Override
     public Visitor save(Visitor toSave) {
-        String sql="insert into visitor values (?,?)";
+        String sql="insert into visitor (reference,name) values (?,?) " +
+                "conflict(reference) do update " +
+                "set name=EXCLUDED.name";
         try {
             PreparedStatement preparedStatement=ConnectionDB
                     .getInstance().Database().prepareStatement(sql);
