@@ -89,7 +89,7 @@ public class AuthorCrudOperations implements CurdOperations<Author> {
                     .getInstance().Database().prepareStatement(sql);
             preparedStatement.setString(1,toDelete.getId());
             preparedStatement.executeQuery();
-         
+
 
 
         }catch (Exception e){
