@@ -31,10 +31,10 @@ public class Main {
 List<Book> BooksToSave=new ArrayList<>(
         Arrays.asList(
                 new Book("11","tell me a story",
-                        129,java.sql.Date.valueOf("2016-04-20"),new Author("30"),
+                        129,java.sql.Date.valueOf("2016-04-20"),new Author("1"),
                         "ROMANCE"),
                 new Book("12","Prophetie",
-                        140,java.sql.Date.valueOf("2016-04-20"),new Author("30"),
+                        140,java.sql.Date.valueOf("2016-04-20"),new Author("2"),
                         "ROMANCE")
         )
 
@@ -52,7 +52,7 @@ for(Book response:responses){
         System.out.println("=".repeat(50));
         Book book=new Book("11","harry potter",
                 100,java.sql.Date.valueOf("2022-09-20"),
-                new Author("11"),"ROMANCE");
+                new Author("3"),"ROMANCE");
         System.out.println("\t\t book saved succefully:");
         System.out.println(bookCrudOperations.save(book));
 

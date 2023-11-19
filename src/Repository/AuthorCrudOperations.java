@@ -52,7 +52,7 @@ public class AuthorCrudOperations implements CurdOperations<Author> {
                     preparedStatement.setString(3,author.getSex());
                     preparedStatement.addBatch();
                 }
-                preparedStatement.executeBatch();
+
             }
             catch (Exception e){
                 e.printStackTrace();
